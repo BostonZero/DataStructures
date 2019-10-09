@@ -6,7 +6,8 @@ public class Primes implements Iterable<Integer> {
     // Construct an iterable Primes object given the number
     // of primes needed.
     public Primes(int n) {
-        ...
+        this.n = n
+		...
     }
 
     // A PrimesIterator object.
@@ -15,8 +16,7 @@ public class Primes implements Iterable<Integer> {
     }
     
     // Primes iterator.
-    private class PrimesIterator implements
-                                     Iterator<Integer> {
+    private class PrimesIterator implements Iterator<Integer> {
         private int count; // number of primes returned
         private int p;     // current prime
 
@@ -29,20 +29,17 @@ public class Primes implements Iterable<Integer> {
         // Are there anymore primes left to be iterated?
         public boolean hasNext() { 
             ...
-        }
+        }//method close
 
         // The next prime.
         public Integer next() {
             // Increment count by 1.
-            ...
-
-            // As long as p is not prime, increment p by 1.
-            ...
-            
-            // Return current value of p and increment it
-            // by 1.
-            ...
-        }
+            count++; //count incrementation 
+            while(true){
+                p++; //up the number, check for prime, come back here if it isnt
+                if(isPrime(p)) return p;
+            }//while close
+        }//method close
         
         // Remove is not supported.
         public void remove() {
