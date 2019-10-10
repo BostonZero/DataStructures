@@ -20,12 +20,18 @@ public class Buffer {
 
     // Move the cursor k positions to the left.
     public void left(int k) {
-        ...
+        while(k!=0){
+            right.push(left.pop()); //push to right what is popped from left
+            k--;
+        }//while close    
     }
 
     // Move the cursor k positions to the right.
     public void right(int k) {
-        ...
+		while(k!=0){
+            left.push(right.pop()); //push to left what is popped from right
+            k--;
+        }//while close   
     }
 
     // Return the number of characters in the buffer.
