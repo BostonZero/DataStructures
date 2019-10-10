@@ -1,3 +1,5 @@
+import java.util.*; 
+
 // An immutable data type to systematically iterate over the
 // first n primes.
 public class Primes implements Iterable<Integer> {
