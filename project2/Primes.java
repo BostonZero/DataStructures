@@ -6,13 +6,12 @@ public class Primes implements Iterable<Integer> {
     // Construct an iterable Primes object given the number
     // of primes needed.
     public Primes(int n) {
-        this.n = n
-		...
+        this.n = n; //only thing the type needs is how many primes to iterate
     }
 
     // A PrimesIterator object.
     public Iterator<Integer> iterator() {
-        ...
+        return new PrimesIterator(); //returns a new obeject but adds the iterator to it
     }
     
     // Primes iterator.
@@ -28,7 +27,7 @@ public class Primes implements Iterable<Integer> {
         
         // Are there anymore primes left to be iterated?
         public boolean hasNext() { 
-            ...
+            return count < n;
         }//method close
 
         // The next prime.
