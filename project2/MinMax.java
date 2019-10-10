@@ -9,13 +9,17 @@ public class MinMax {
     public static int min(Node first) {
         // Set min to the largest integer
         int min = Integer.MAX_VALUE;
-
+        
         // Compare each element in linked list with min and
         // if it is smaller, update min.
-        ...
+        for(Node x = first; x != null; x = x.next)
+           if (x.item < min){
+               min = x.item;
+           }//if close
+        }//for close
             
         // Return min
-        ...
+        return min;
     }
 
     // Return the maximum value in the given linked list.
@@ -25,10 +29,14 @@ public class MinMax {
         
         // Compare each element in linked list with max and
         // if it is larger, update max.
-        ...
+        for(Node x = first; x != null; x = x.next)
+           if (x.item > max){
+               max = x.item;
+           }//if close
+        }//for close
             
-        // Return max
-        ...
+        // Return Max
+        return max;
     }
 
     // Test client. [DO NOT EDIT]
@@ -44,7 +52,6 @@ public class MinMax {
             first.item = item;
             first.next = oldfirst;
         }
-        StdOut.println(min(first) == StdStats.min(items) 
-                       && max(first) == StdStats.max(items));
+        StdOut.println(min(first) == StdStats.min(items) && max(first) == StdStats.max(items));
     }
 }
