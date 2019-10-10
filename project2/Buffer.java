@@ -10,12 +10,12 @@ public class Buffer {
 
     // Insert c at the cursor position.
     public void insert(char c) {
-        ...
+        left.push(c);
     }
     
     // Delete and return the character at the cursor.
     public char delete() {
-        ...
+        left.pop();
     }
 
     // Move the cursor k positions to the left.
@@ -36,7 +36,7 @@ public class Buffer {
 
     // Return the number of characters in the buffer.
     public int size() {
-        ...
+        return left.size() + right.size();
     }
 
     // Return a string representation of the buffer with
@@ -46,19 +46,26 @@ public class Buffer {
         StringBuilder sb = new StringBuilder();
 
         // Push chars from left into a temporary stack.
-        ...
+        private Stack<Character> temp;
+	While (!left.isEmpty()){
+		temp.push(left.pop());
+	}
+ 
             
         // Append chars from temporary stack to sb.
-        ...
-           
+        While (!temp.isEmpty()){
+		sb.append(temp.pop());
+	}
         // Append "|" to sb.
-        ...
+        sb.append("|");
         
         // Append chars from right to sb.
-        ...
+        While (!right.isEmpty()){
+		sb.append(right.pop());
+	}
             
         // Return the string from sb.
-        ...
+        return sb;
     }
     
     // Test client (DO NOT EDIT).
