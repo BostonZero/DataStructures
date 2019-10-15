@@ -5,7 +5,7 @@ public class Buffer {
 
     // Create an empty buffer.
     public Buffer() {
-        left = new Stack();
+	left = new Stack();
 	right = new Stack();
     }
 
@@ -16,7 +16,7 @@ public class Buffer {
     
     // Delete and return the character at the cursor.
     public char delete() {
-        reutrn left.pop();
+        return left.pop();
     }
 
     // Move the cursor k positions to the left.
@@ -32,7 +32,7 @@ public class Buffer {
 		while(k!=0){
             left.push(right.pop()); //push to left what is popped from right
             k--;
-        }//while close   
+        }//while close
     }
 
     // Return the number of characters in the buffer.
@@ -47,26 +47,26 @@ public class Buffer {
         StringBuilder sb = new StringBuilder();
 
         // Push chars from left into a temporary stack.
-        Stack<Character> temp;
-	While (!left.isEmpty()){
+        Stack temp = new Stack();
+	while (!left.isEmpty()){
 		temp.push(left.pop());
 	}
- 
-            
+
+
         // Append chars from temporary stack to sb.
-        While (!temp.isEmpty()){
+        while (!temp.isEmpty()){
 		sb.append(temp.pop());
 	}
         // Append "|" to sb.
         sb.append("|");
         
         // Append chars from right to sb.
-        While (!right.isEmpty()){
+        while (!right.isEmpty()){
 		sb.append(right.pop());
 	}
             
         // Return the string from sb.
-        return sb;
+        return sb.toString();
     }
     
     // Test client (DO NOT EDIT).
