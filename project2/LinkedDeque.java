@@ -3,69 +3,114 @@ import java.util.NoSuchElementException;
 
 // Deque implementation using a linked list.
 public class LinkedDeque<Item> implements Iterable<Item> {
-    ...
+    private Node head;
+    private Node tail; 
+    private int size;
 
     // Helper doubly-linked list class.
     private class Node {
         private Item item;
         private Node next;
         private Node prev;
+        public Node(Item item){
+            this.item = item;
+            this.next = null;
+            this.prev = null;
+        }
     }
 
     // Construct an empty deque.
     public LinkedDeque() {
-        ...
+        head = null;
+        tail = null; 
+        size = 0;
     }
 
     // Is the deque empty?
-    public boolean isEmpty() {
-        ...
-    }
+    public boolean isEmpty() {return size==0;}
 
     // The number of items on the deque.
-    public int size() {
-        ...
-    }
+    public int size() {return size;}
 
     // Add item to the front of the deque.
     public void addFirst(Item item) {
-        ...
+        if(item == null){throw new NullPointerException();}
+        Node temp = new Node(item);
+        if(isEmpty()){
+            head = temp;
+            tail = temp;
+        }else{
+            temp.next = head;
+            head.prev = temp;
+            head = temp;
+        }
+        size++;
     }
 
     // Add item to the end of the deque.
     public void addLast(Item item) {
-        ...
+        if(item == null){throw new NullPointerException();}
+        Node temp = new Node(item);
+        if(isEmpty()){
+            head = temp;
+            tail = temp;
+        }else{
+            temp.last = tail;
+            tail.next = temp;
+            tail = temp;
+        }
     }
 
     // Remove and return item from the front of the deque.
     public Item removeFirst() {
-        ...
+        if(isEmpty()){throw new NoSuchElementException();}
+            Item item = head.item;
+            if(size==1){
+                head = null;
+                tail = null;
+            }else{
+                head = head.next;
+                head.prev = null;
+            }
+            size--;
+            return item;
     }
 
     // Remove and return item from the end of the deque.
     public Item removeLast() {
-        ...
+        if(isEmpty()){throw new NoSuchElementException();}
+        Item item = tail.item;
+        if(size==1){
+            head = null;
+            tail = null;
+        }else{
+            tail = tail.prev;
+            tail.next = null;
+        }
+        size--;
+        return item;
     }
 
     // An iterator over items in the queue in order from front to end.
     public Iterator<Item> iterator() {
-        ...
+        return new DequeIterator();
     }
     
     // An iterator, doesn't implement remove() since it's optional.
     private class DequeIterator implements Iterator<Item> {
-        ...
+        private Node current;
         
-        DequeIterator() {
-            ...
-        }
+        DequeIterator() {this.current = head;}
 
-        public boolean hasNext()  { ... }
+        public boolean hasNext()  {return current != null;}
 
-        public void remove() { throw new UnsupportedOperationException(); }
+        public void remove() {throw new UnsupportedOperationException();}
 
         public Item next() {
-            ...
+            Item item = current.item;
+            current = current.next;
+            return item;
+
         }
     }
 
