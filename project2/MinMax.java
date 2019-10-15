@@ -38,7 +38,6 @@ public class MinMax {
         // Return Max
         return max;
     }
-
     // Test client. [DO NOT EDIT]
     public static void main(String[] args) {
         int[] items = new int[1000];
