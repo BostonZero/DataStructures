@@ -5,7 +5,8 @@ public class Buffer {
 
     // Create an empty buffer.
     public Buffer() {
-        ...
+        left = new Stack();
+	right = new Stack();
     }
 
     // Insert c at the cursor position.
