@@ -12,7 +12,7 @@ public class MinMax {
         
         // Compare each element in linked list with min and
         // if it is smaller, update min.
-        for(Node x = first; x != null; x = x.next)
+        for(Node x = first; x != null; x = x.next){
            if (x.item < min){
                min = x.item;
            }//if close
@@ -29,7 +29,7 @@ public class MinMax {
         
         // Compare each element in linked list with max and
         // if it is larger, update max.
-        for(Node x = first; x != null; x = x.next)
+        for(Node x = first; x != null; x = x.next){
            if (x.item > max){
                max = x.item;
            }//if close
