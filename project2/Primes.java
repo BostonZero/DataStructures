@@ -24,7 +24,7 @@ public class Primes implements Iterable<Integer> {
         // Construct a PrimesIterator object.
         PrimesIterator() {
             count = 0;
-            p = 2;
+            p = 1;
         }
         
         // Are there anymore primes left to be iterated?
