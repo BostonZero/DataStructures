@@ -2,12 +2,13 @@
 public class Buffer {
     private Stack<Character> left;  // chars left of cursor
     private Stack<Character> right; // chars right of cursor
-
+    private Stack<Character> temp;
     // Create an empty buffer.
     public Buffer() {
-	left = new Stack();
-	right = new Stack();
-    }
+	left = new Stack<Character>();
+	right = new Stack<Character>();
+    	temp = new Stack<Character>();
+	}
 
     // Insert c at the cursor position.
     public void insert(char c) {
@@ -47,7 +48,6 @@ public class Buffer {
         StringBuilder sb = new StringBuilder();
 
         // Push chars from left into a temporary stack.
-        Stack temp = new Stack();
 	while (!left.isEmpty()){
 		temp.push(left.pop());
 	}
@@ -64,11 +64,11 @@ public class Buffer {
         while (!right.isEmpty()){
 		sb.append(right.pop());
 	}
-            
+
         // Return the string from sb.
         return sb.toString();
     }
-    
+
     // Test client (DO NOT EDIT).
     public static void main(String[] args) {
         Buffer buf = new Buffer();
