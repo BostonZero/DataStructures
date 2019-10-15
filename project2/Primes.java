@@ -10,7 +10,7 @@ public class Primes implements Iterable<Integer> {
     public Primes(int n) {
         this.n = n; //only thing the type needs is how many primes to iterate
     }
-
+    
     // A PrimesIterator object.
     public Iterator<Integer> iterator() {
         return new PrimesIterator(); //returns a new obeject but adds the iterator to it
@@ -41,12 +41,11 @@ public class Primes implements Iterable<Integer> {
                 if(isPrime(p)) return p;
             }//while close
         }//method close
-        
+
         // Remove is not supported.
         public void remove() {
             // nothing to do
         }
-
         // Is x (>= 2) prime?
         private boolean isPrime(int x) {
             for (int i = 2; i <= x / i; i++) {
@@ -57,7 +56,6 @@ public class Primes implements Iterable<Integer> {
             return true;
         }
     }
-
     // Test client. [DO NOT EDIT]
     public static void main(String[] args) {
         int n = Integer.parseInt(args[0]);
