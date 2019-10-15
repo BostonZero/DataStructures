@@ -15,7 +15,7 @@ public class Buffer {
     
     // Delete and return the character at the cursor.
     public char delete() {
-        left.pop();
+        reutrn left.pop();
     }
 
     // Move the cursor k positions to the left.
@@ -46,7 +46,7 @@ public class Buffer {
         StringBuilder sb = new StringBuilder();
 
         // Push chars from left into a temporary stack.
-        private Stack<Character> temp;
+        Stack<Character> temp;
 	While (!left.isEmpty()){
 		temp.push(left.pop());
 	}
