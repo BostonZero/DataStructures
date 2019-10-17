@@ -4,35 +4,51 @@ public class Die implements Comparable<Die> {
 
     // Construct a die.
     public Die() {
-        ...
+        this.value = 0;
     }
     
     // Roll the die.
     public void roll() {
-        ...
+        this.value = stdrandom.uniform(5)+1;
     }
 
     // Face value of the die.
     public int value() {
-        ...
+        return this.value;
+        
     }
 
     // Does the die have the same face value as that?
     public boolean equals(Die that) {
-        ...
+        if (this.value() == that.value()) {return true;}
+        return false;
     }
 
     // A negative integer, zero, or positive integer depending on
     // whether this die's value is less than, equal to, or greater
     // than the that die's value.
     public int compareTo(Die that) {
-        ...
+        return this.value()-that.value();
     }
 
     // A string representation of the die giving the current
     // face value.
     public String toString() {
-        ...
+        switch(this.value()){
+            case 1:
+					
+            case 2:
+     				
+            case 3:
+      				
+            case 4:
+					
+            case 5:
+					return "*   *\n  *  \n*   *";
+            case 6:
+					
+
+        }
     }
 
     // Test client. [DO NOT EDIT]
