@@ -36,17 +36,17 @@ public class Die implements Comparable<Die> {
     public String toString() {
         switch(this.value()){
             case 1:
-					
+		return "\n  *  \n"		
             case 2:
-     				
+     		return "
             case 3:
-      				
+		return "
             case 4:
-					
+		return "*   *\n\n*   *";		
             case 5:
-					return "*   *\n  *  \n*   *";
+		return "*   *\n  *  \n*   *";
             case 6:
-					
+		return "*   *\n*   *\n*   *";				
 
         }
     }
