@@ -8,17 +8,22 @@ public class Location implements Comparable<Location> {
 
     // Construct a new location given its name, latitude, and longitude.
     public Location(String loc, double lat, double lon) {
-        ...
+        this.loc = loc;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     // The great-circle distance between this location and that.
     public double distanceTo(Location that) {
         ...
+			
+			
     }
 
     // Is this location the same as that?
     public boolean equals(Location that) {
-        ...
+        if (this.loc == that.loc) {return true;}
+        return false;
     }
 
     // -1, 0, or 1 depending on whether the distance of this 
@@ -26,12 +31,22 @@ public class Location implements Comparable<Location> {
     // 37.971525, 23.726726) is less than, equal to, or greater
     // than the distance of that location to the origin.
     public int compareTo(Location that) {
-        ...
+        int distance = this.distanceTo(that);
+		if(distance = 0) {return 0;}
+		if(distance < 0) {return -1;}
+		return 1;
     }
 
     // A string representation of the location, in "loc (lat, lon)" format.
     public String toString() {
-        ...
+		StringBuilder sb = new StringBuilder();  
+		sb.append(loc);
+		sb.append(" (");
+		sb.append(lat);
+		sb.append(", ");
+		sb.append(lon);
+		sb.append(")");
+		return sb;
     }
 
     // Test client. [DO NOT EDIT]
