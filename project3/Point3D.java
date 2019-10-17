@@ -9,7 +9,9 @@ public class Point3D implements Comparable<Point3D> {
 
     // Construct a point in 3D given its coordinates.
     public Point3D(double x, double y, double z) {
-        ...
+        this.x = x;
+        this.y = y;
+        this.z = z;
     }
 
     // The Euclidean distance between this point and that.
@@ -72,7 +74,7 @@ public class Point3D implements Comparable<Point3D> {
 
     // A string representation of the point, as "(x, y, z)".
     public String toString() {
-        ...
+        return String.format("(%d, %d, %d)",this.x,this.y,this.z);
     }
 
     // Test client. [DO NOT EDIT]
