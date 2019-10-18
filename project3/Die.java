@@ -28,7 +28,9 @@ public class Die implements Comparable<Die> {
     // whether this die's value is less than, equal to, or greater
     // than the that die's value.
     public int compareTo(Die that) {
-        return this.value()-that.value();
+        if(this.value == 0){return 0;}
+	if(this.value < 0) {return -1;}
+	return 1;
     }
 
     // A string representation of the die giving the current
@@ -36,18 +38,17 @@ public class Die implements Comparable<Die> {
     public String toString() {
         switch(this.value()){
             case 1:
-		return "\n  *  \n"		
+		return "     \n  *  \n     ";		
             case 2:
-     		return "
+     		return "*    \n     \n    *";
             case 3:
-		return "
+		return "*    \n  *  \n    *";
             case 4:
-		return "*   *\n\n*   *";		
+		return "*   *\n     \n*   *";		
             case 5:
 		return "*   *\n  *  \n*   *";
             case 6:
-		return "*   *\n*   *\n*   *";				
-
+		return "* * *\n     \n* * *";				
         }
     }
 
