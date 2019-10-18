@@ -19,7 +19,7 @@ public class Point3D implements Comparable<Point3D> {
         int temp1,temp2,temp3,temp4;
         temp1 = this.x - that.x * this.x - that.x;
         temp2 = this.y - that.y * this.y - that.y;
-        temp3 = this.z - this.z * this.z - this.z;
+        temp3 = this.z - this.z * this.z - that.z;
         temp4 = temp1+temp2+temp3; 
         return Math.sqrt(temp4);
     }
