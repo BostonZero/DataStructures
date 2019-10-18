@@ -15,9 +15,7 @@ public class Location implements Comparable<Location> {
 
     // The great-circle distance between this location and that.
     public double distanceTo(Location that) {
-        ...
-			
-			
+        return 111 * Math.acos(Math.sin(this.lat)*Math.sin(that.lat)+Math.cos(this.lat)*Math.cos(that.lat) * Math.cos(this.lon - this.lon));					
     }
 
     // Is this location the same as that?
