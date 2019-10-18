@@ -16,7 +16,24 @@ public class Point3D implements Comparable<Point3D> {
 
     // The Euclidean distance between this point and that.
     public double distance(Point3D that) {
-        ...
+        int temp1,temp2,temp3,temp4;
+        temp1 = this.x - that.x * this.x - that.x;
+        temp2 = this.y - that.y * this.y - that.y;
+        temp3 = this.z - this.z * this.z - this.z;
+        temp4 = temp1+temp2+temp3; 
+        return Math.sqrt(temp4);
+    }
+    public double originDistance() {
+        int temp1,temp2,temp3,temp4;
+        temp1 = this.x - 0 * this.x - 0;
+        temp2 = this.y - 0 * this.y - 0;
+        temp3 = this.z - 0 * this.z - 0;
+        temp4 = temp1+temp2+temp3; 
+        return Math.sqrt(temp4);
+            
+            
+            
+            
     }
 
     // -1, 0, or 1 depending on this point's Euclidean
@@ -24,7 +41,12 @@ public class Point3D implements Comparable<Point3D> {
     // equal to, or greater than that point's Euclidean
     // distance to the origin.
     public int compareTo(Point3D that) {
-        ...
+        if (this.originDistance() < that.originDistance()) {return -1;}
+        if (this.originDistance() > that.originDistance()) {return 1;}
+		return 0;
+            
+            
+            
     }
 
     // An x-coordinate comparator.
@@ -38,8 +60,9 @@ public class Point3D implements Comparable<Point3D> {
         // is less than, equal to, or greater than p2's
         // x-coordinate.
         public int compare(Point3D p1, Point3D p2) {
-            ...
-        }
+			if(p1.x == 0 p2.x) {return 0;}
+			if(p1.x > p2.x) {return 1;}
+			return -1;
     }
 
     // A y-coordinate comparator.
@@ -53,7 +76,9 @@ public class Point3D implements Comparable<Point3D> {
         // is less than, equal to, or greater than p2's
         // y-coordinate.
         public int compare(Point3D p1, Point3D p2) {
-            ...
+            if(p1.y == 0 p2.y) {return 0;}
+			if(p1.y > p2.y) {return 1;}
+			return -1;
         }
     }
 
@@ -68,7 +93,9 @@ public class Point3D implements Comparable<Point3D> {
         // is less than, equal to, or greater than p2's
         // z-coordinate.
         public int compare(Point3D p1, Point3D p2) {
-            ...
+            if(p1.z == 0 p2.z) {return 0;}
+			if(p1.z > p2.z) {return 1;}
+			return -1;
         }
     }
 
