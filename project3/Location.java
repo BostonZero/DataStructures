@@ -15,7 +15,21 @@ public class Location implements Comparable<Location> {
 
     // The great-circle distance between this location and that.
     public double distanceTo(Location that) {
-        return 111 * Math.acos(Math.sin(this.lat)*Math.sin(that.lat)+Math.cos(this.lat)*Math.cos(that.lat) * Math.cos(this.lon - this.lon));					
+	double temp1 = Math.sin(this.lat);
+	double temp2 = Math.sin(that.lat);
+	double temp3 = Math.cos(this.lat);
+	double temp4 = Math.cos(that.lat);
+	double temp5 = this.lon - that.lon;
+	double temp6 = Math.cos(temp5);
+	double temp7 = temp1*temp2;
+	double temp8 = temp3*temp4*temp6;
+	double temp9 = temp7+temp8;
+	double temp10 = Math.acos(temp9);
+	double temp11 = 111*temp10;
+	return temp11;
+	    
+	    
+        					
     }
 
     // Is this location the same as that?
@@ -29,7 +43,7 @@ public class Location implements Comparable<Location> {
     // 37.971525, 23.726726) is less than, equal to, or greater
     // than the distance of that location to the origin.
     public int compareTo(Location that) {
-        int distance = this.distanceTo(that);
+        double distance = this.distanceTo(that);
 		if(distance = 0) {return 0;}
 		if(distance < 0) {return -1;}
 		return 1;
