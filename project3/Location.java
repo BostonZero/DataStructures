@@ -15,21 +15,18 @@ public class Location implements Comparable<Location> {
 
     // The great-circle distance between this location and that.
     public double distanceTo(Location that) {
-	double temp1 = Math.sin(this.lat);
-	double temp2 = Math.sin(that.lat);
-	double temp3 = Math.cos(this.lat);
-	double temp4 = Math.cos(that.lat);
-	double temp5 = this.lon - that.lon;
-	double temp6 = Math.cos(temp5);
-	double temp7 = temp1*temp2;
-	double temp8 = temp3*temp4*temp6;
-	double temp9 = temp7+temp8;
-	double temp10 = Math.acos(temp9);
-	double temp11 = 111*temp10;
-	return temp11;
+	double x1 = Math.toRadians(this.lat);
+	double x2 = Math.toRadians(that.lat);
+	double y1 = Math.toRadians(this.lon);
+	double y2 = Math.toRadians(that.lon);
 	    
-	    
-        					
+	double s1 = Math.sin(x1);
+	double s2 = Math.sin(x2);
+	double c1 = Math.cos(x1);
+	double c2 = Math.cos(x2);
+	double c3 = Math.cos(y1-y2);
+	double ac = Math.acos(s1*s2+c1*c2*c3);
+        return 111*ac;				
     }
 
     // Is this location the same as that?
@@ -44,21 +41,15 @@ public class Location implements Comparable<Location> {
     // than the distance of that location to the origin.
     public int compareTo(Location that) {
         double distance = this.distanceTo(that);
-		if(distance = 0) {return 0;}
+		if(distance == 0) {return 0;}
 		if(distance < 0) {return -1;}
 		return 1;
     }
 
     // A string representation of the location, in "loc (lat, lon)" format.
     public String toString() {
-		StringBuilder sb = new StringBuilder();  
-		sb.append(loc);
-		sb.append(" (");
-		sb.append(lat);
-		sb.append(", ");
-		sb.append(lon);
-		sb.append(")");
-		return sb;
+		return String.format("%d (%d, %d)",loc,lat,lon);
+
     }
 
     // Test client. [DO NOT EDIT]
