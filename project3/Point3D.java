@@ -16,7 +16,7 @@ public class Point3D implements Comparable<Point3D> {
 
     // The Euclidean distance between this point and that.
     public double distance(Point3D that) {
-        int temp1,temp2,temp3,temp4;
+        double temp1,temp2,temp3,temp4;
         temp1 = (this.x - that.x) * (this.x - that.x);
         temp2 = (this.y - that.y) * (this.y - that.y);
         temp3 = (this.z - this.z) * (this.z - that.z);
@@ -24,16 +24,12 @@ public class Point3D implements Comparable<Point3D> {
         return Math.sqrt(temp4);
     }
     public double originDistance() {
-        int temp1,temp2,temp3,temp4;
+        double temp1,temp2,temp3,temp4;
         temp1 = this.x * this.x ;
         temp2 = this.y * this.y ;
         temp3 = this.z * this.z ;
         temp4 = temp1+temp2+temp3; 
-        return Math.sqrt(temp4);
-            
-            
-            
-            
+        return Math.sqrt(temp4);      
     }
 
     // -1, 0, or 1 depending on this point's Euclidean
@@ -60,6 +56,7 @@ public class Point3D implements Comparable<Point3D> {
 		if(p1.x == p2.x) {return 0;}
 		if(p1.x > p2.x) {return 1;}
 		return -1;
+	}
     }
 
     // A y-coordinate comparator.
