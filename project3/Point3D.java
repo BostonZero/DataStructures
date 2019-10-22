@@ -87,9 +87,9 @@ public class Point3D implements Comparable<Point3D> {
         // is less than, equal to, or greater than p2's
         // z-coordinate.
         public int compare(Point3D p1, Point3D p2) {
-            if(p1.z == p2.z) {return 0;}
-			if(p1.z > p2.z) {return 1;}
-			return -1;
+        	if(p1.z == p2.z) {return 0;}
+		if(p1.z > p2.z) {return 1;}
+		return -1;
         }
     }
 
