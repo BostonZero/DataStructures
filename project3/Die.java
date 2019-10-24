@@ -9,7 +9,7 @@ public class Die implements Comparable<Die> {
     
     // Roll the die.
     public void roll() {
-        this.value = stdrandom.uniform(5)+1;
+        this.value = StdRandom.uniform(5)+1;
     }
 
     // Face value of the die.
@@ -28,28 +28,27 @@ public class Die implements Comparable<Die> {
     // whether this die's value is less than, equal to, or greater
     // than the that die's value.
     public int compareTo(Die that) {
-        if(this.value == 0){return 0;}
-	if(this.value < 0) {return -1;}
+        if(this.value == that.value){return 0;}
+	if(this.value < that.value) {return -1;}
 	return 1;
     }
 
     // A string representation of the die giving the current
     // face value.
     public String toString() {
-        switch(this.value()){
-            case 1:
-		return "     \n  *  \n     ";		
-            case 2:
-     		return "*    \n     \n    *";
-            case 3:
-		return "*    \n  *  \n    *";
-            case 4:
-		return "*   *\n     \n*   *";		
-            case 5:
-		return "*   *\n  *  \n*   *";
-            case 6:
-		return "* * *\n     \n* * *";				
-        }
+        if(this.value() == 1){
+		return "     \n  *  \n     ";}		
+        if(this.value() == 2){
+     		return "*    \n     \n    *";}
+	if(this.value() == 3){
+		return "*    \n  *  \n    *";}
+        if(this.value() == 4){
+		return "*   *\n     \n*   *";}
+	if(this.value() == 5){
+		return "*   *\n  *  \n*   *";}
+        if(this.value() == 6){
+		return "* * *\n     \n* * *";}
+	return "i didnt roll a 1-6 for some reason";
     }
 
     // Test client. [DO NOT EDIT]
