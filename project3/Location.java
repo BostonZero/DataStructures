@@ -24,7 +24,7 @@ public class Location implements Comparable<Location> {
 	double s2 = Math.sin(x2);
 	double c1 = Math.cos(x1);
 	double c2 = Math.cos(x2);
-	double c3 = Math.cos(y1-y2);
+	double c3 = Math.cos(y2-y1);
 	double ac = Math.acos(s1*s2+c1*c2*c3);
         return 111*ac;				
     }
@@ -48,7 +48,7 @@ public class Location implements Comparable<Location> {
 
     // A string representation of the location, in "loc (lat, lon)" format.
     public String toString() {
-		return String.format("%d (%d, %d)",loc,lat,lon);
+		return String.format("%s (%d, %d)",loc,lat,lon);
 
     }
 
