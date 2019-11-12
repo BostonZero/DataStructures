@@ -1,23 +1,27 @@
 // Models a board in the 8-puzzle game or its generalization.
 public class Board {
-    ...
-    
+    private final int[][] tiles;
+    private final int n;
+	private int hamming;
+	private int manhattan;
     // Construct a board from an N-by-N array of tiles, where 
     // tiles[i][j] = tile at row i and column j, and 0 represents the blank 
     // square.
-    public Board(int[][] tiles) {
-        ...
-    }
+    public Board(int[][] tiles) {//iterate through, copying to this
+		this.n=tiles.length;
+    	this.tiles=new int[n][n];
+    	for (int i = 0; i < n; i++){
+        	for (int j = 0; j < n; j++){
+            	this.tiles[i][j] = tiles[i][j];
+    		}//inner for
+		}//outer for
+    }//board
 
     // Tile at row i and column j.
-    public int tileAt(int i, int j) {
-        ...
-    }
+    public int tileAt(int i, int j) {return this.tiles[i][j];}
     
     // Size of this board.
-    public int size() {
-        ...
-    }
+    public int size() {return this.n;}
 
     // Number of tiles out of place.
     public int hamming() {
@@ -49,7 +53,7 @@ public class Board {
         ...
     }
 
-    // String representation of this board.
+    // String representation of this board. DONE FOR ME
     public String toString() {
         String s = N + "\n";
         for (int i = 0; i < N; i++) {
@@ -64,13 +68,20 @@ public class Board {
             }
         }
         return s;
-    }
+    }//TOSTRING DONE FOR ME
 
     // Helper method that returns the position (in row-major order) of the 
     // blank (zero) tile.
-    private int blankPos() {
-        ...
-    }
+    private int blankPos() {//this will iterate and every block it encounters will up the counter until we hit the 0 empty block
+		int pos =0;
+		for (int i = 0; i < n; i++){
+			for (int j = 0; j < n; j++){
+				if(tiles[i][j] == 0){return pos;}
+				else {pos++;}
+				}//if
+			}//innerfor
+		}//outerfor
+    }//blankpos
 
     // Helper method that returns the number of inversions.
     private int inversions() {
