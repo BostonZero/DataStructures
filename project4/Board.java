@@ -81,41 +81,41 @@ public class Board {
 
     // All neighboring boards.
     public Iterable<Board> neighbors() {
-		int pos=blankPos()-1;
-		int i=pos/n;
-		int j=pos%n;
-		int a[][]=null;
-		Board temp=null;
-		List<Board> list=new ArrayList<Board>();
-		if(i>0){
-			a=cloneTiles();
-			int t=a[i][j];
-			a[i][j]=a[i-1][j];
-			a[i-1][j]=t;
-			list.add(new Board(a));
-		}
-		if(i<n-1){
-			 a=cloneTiles();
-			int t=a[i][j];
-			a[i][j]=a[i+1][j];
-			a[i+1][j]=t;
-			list.add(new Board(a));
-		}
-		if(j>0){
-			 a=cloneTiles();
-			int t=a[i][j];
-			a[i][j]=a[i][j-1];
-			a[i][j-1]=t;
-			list.add(new Board(a));
-		}
-		if(j<n-1){
-			a=cloneTiles();
-			int t=a[i][j];
-			a[i][j]=a[i][j+1];
-			a[i][j+1]=t;
-			list.add(new Board(a));
-		}
-		return list;
+	int pos=blankPos()-1;
+	int i=pos/n;
+	int j=pos%n;
+	int a[][]=null;
+	Board temp=null;
+	List<Board> list=new ArrayList<Board>();
+	if(i>0){
+		a=cloneTiles();
+		int t=a[i][j];
+		a[i][j]=a[i-1][j];
+		a[i-1][j]=t;
+		list.add(new Board(a));
+	}
+	if(i<n-1){
+		 a=cloneTiles();
+		int t=a[i][j];
+		a[i][j]=a[i+1][j];
+		a[i+1][j]=t;
+		list.add(new Board(a));
+	}
+	if(j>0){
+		a=cloneTiles();
+		int t=a[i][j];
+		a[i][j]=a[i][j-1];
+		a[i][j-1]=t;
+		list.add(new Board(a));
+	}
+	if(j<n-1){
+		a=cloneTiles();
+		int t=a[i][j];
+		a[i][j]=a[i][j+1];
+		a[i][j+1]=t;
+		list.add(new Board(a));
+	}
+	return list;
 	}//class end
 
     // String representation of this board. DONE FOR ME
