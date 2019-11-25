@@ -13,7 +13,11 @@ public class CertifyHeap {
         // either of its children, return false, meaning a[]
         // does not represent a maximum-ordered heap.
         // Otherwise, return true.
-        ...
+        for(int i=0; i <= ((N-2)/2);i++){ 
+            if ((2*i+2 < N && less(a[i], a[2*i+1])){return false;}
+            if (2*i+2 < N && less(a[i], a[2*i+2])){return false;}
+        }//for end
+        return true;
     }
 
     // Test client. [DO NOT EDIT]
