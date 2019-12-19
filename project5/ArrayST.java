@@ -6,7 +6,7 @@ public class ArrayST<Key, Value> {
 
     // Create a symbol table with INIT_CAPACITY.
     public ArrayST() {
-		keys = (Key[])   new Object[INIT_CAPACITY];
+	keys = (Key[])   new Object[INIT_CAPACITY];
         values = (Value[]) new Object[INIT_CAPACITY];
     }
 
@@ -24,12 +24,12 @@ public class ArrayST<Key, Value> {
     // Return true if the table is empty and false otherwise.
     public boolean isEmpty() {
         if (size() == 0){return true;}
-		return false;
+	return false;
     }
 
     // Return true if the table contains key and false otherwise.
     public boolean contains(Key key) {
-		for (int i = 0; i < n; i++){
+	for (int i = 0; i < n; i++){
             if (keys[i].equals(key)) {return true;} //iterate through looking for key, if found return true
 		}//end for
         return false; //if not found, false
@@ -39,7 +39,7 @@ public class ArrayST<Key, Value> {
     public Value get(Key key) {
         for (int i = 0; i < n; i++){
             if (keys[i].equals(key)) {return values[i];} //iterates through and finds matching key, then returns its value
-		}//end for
+	}//end for
 		
         return null;//if key not found, return null
     }
@@ -73,10 +73,10 @@ public class ArrayST<Key, Value> {
 
     // Return all the keys in the table.
     public Iterable<Key> keys()  {
-		Queue<Key> queue = new PriorityQueue<Key>();
+	Queue<Key> queue = new PriorityQueue<Key>();
         for (int i = 0; i < n; i++){
             queue.add(keys[i]);
-		}//end for
+	}//end for
         return queue;
 		//makes the a queue and puts all keys in it, returns it
     }
