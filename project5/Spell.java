@@ -26,7 +26,7 @@ public class Spell {
 			String[] pieces = line.split("\\b");//break into words
 			for(int i=0;i<pieces.length;i++){// for each word
 				if (st.get(pieces[i]) != null){//if key exist
-					StdOut.println(String.format("%s,%i,%s", pieces[i],count,st.get(pieces[i]));//print the misspelled word, line, correct spelling
+					StdOut.println(String.format("%s: %i -> %s", pieces[i],count,st.get(pieces[i]));//print the misspelled word, line, correct spelling
 			}//for end
 			count++; //increment the line counter
 			
